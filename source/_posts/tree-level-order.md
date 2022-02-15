@@ -6,12 +6,9 @@ categories: ["算法"]
 author: a东
 ---
 
-# 题目描述
-
-给你二叉树的根节点 root ，返回其节点值的 层序遍历 。（即逐层地，从左到右访问所有节点）。 [leetcode](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
-
+## 二叉树层序遍历
+给你二叉树的根节点 root ，返回其节点值的 层序遍历 。（即逐层地，从左到右访问所有节点）。[leetcode题目链接](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 ![二叉树](/images/tree-level-order/tree.jpeg)
-
 <!-- more -->
 
 示例1
@@ -117,6 +114,10 @@ Index[A.Right] = i*2+2
         }
     }
 ```
+
+
+## 参考
+* [代码随想录](https://programmercarl.com/)
 
 
 
