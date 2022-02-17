@@ -48,7 +48,7 @@ func binarySearch(nums []int, target int) int {
 ```
 
 **复杂度分析**
-- 时间复杂度：O(logn)，其中 n 是数组的长度。
+- 时间复杂度：O(log n)，其中 n 是数组的长度。
 - 空间复杂度：O(1)。
 
 ## 参考
