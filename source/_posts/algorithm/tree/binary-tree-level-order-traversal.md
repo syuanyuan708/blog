@@ -9,7 +9,7 @@ author: a东
 ## 二叉树层序遍历
 给你二叉树的根节点 root ，返回其节点值的 层序遍历 。（即逐层地，从左到右访问所有节点）。
 [ leetcode 题目链接](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
-![二叉树](/images/binary-tree-level-order-traversal/tree.jpeg)
+![二叉树](/images/algorithm/tree/tree.jpeg)
 <!-- more -->
 
 示例1
@@ -79,7 +79,7 @@ author: a东
 ```
 
 至此我们已经可以根据节点值的数组来构造一棵二叉树了，例如输入[4,1,6,0,2,5,7,-1,-1,-1,3,-1,-1,-1,8]构造二叉树如下：
-![构造二叉树](/images/binary-tree-level-order-traversal/build-tree.png)
+![构造二叉树](/images/algorithm/tree/build-tree.png)
 
 构造完二叉树后我们开始模拟每次遍历一层来层序遍历二叉树，每次遍历的过程都把当前层的值存储下来，遍历完后追加到结果集中。注意添加当前节点的左、右节点时做了判空处理，否则最后会多一层全空的数据。
 **层序遍历二叉树**
