@@ -1,7 +1,7 @@
 ---
 title: 有效的完全平方数
 date: 2022-02-17
-tags: ["二分法"]
+tags: ["数组", "二分法"]
 categories: ["算法"]
 author: a东
 ---
