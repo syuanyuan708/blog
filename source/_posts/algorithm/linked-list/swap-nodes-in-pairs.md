@@ -33,15 +33,15 @@ mathjax: true
 ```
 
 ### 解题思路
-题目要求将链表中的节点2个一对进行交换，如 `示例1` 原链表为 `1-2-3-4` 交换后的结果为 `2-1-4-3`。可以看到交换完以后头结点发生了改变，因此为了方便处理我们可以引入一个虚拟头结点 `dummyHead` 指向原链表的头结点 `head`。
+题目要求将链表中的节点2个一对进行交换，如 `示例1` 原链表为 `1-2-3-4` 交换后的结果为 `2-1-4-3`。可以看到交换完以后头节点发生了改变，因此为了方便处理我们可以引入一个虚拟头节点 `dummyHead` 指向原链表的头节点 `head`。
 接下来我们需要交换 `dummyHead` 节点后的2个节点 `node1 = dummyHead.Next`、`node2 = dummyHead.Next.Next`，并在交换完成后将 `dummyHead` 指向 `node1` 来继续处理后续的节点对。由于我们最后需要返回 `dummyHead.Next` 
-最为新链表的头结点，因此需要一个临时节点 `cursor = dummyHead` 代替 `dummyHead` 来进行迭代遍历。这里有一个点要注意就是节点之间链接的顺序，如下这种链接是错误的因为会一次交换后会丢失 `node2` 的原后继节点。
+做为新链表的头节点，因此需要一个临时节点 `cursor = dummyHead` 代替 `dummyHead` 来进行迭代遍历。这里有一个点要注意就是节点之间链接的顺序，如下这种链接是错误的因为会一次交换后会丢失 `node2` 的原后继节点。
 ![错误步骤](/images/algorithm/linked-list/swap-nodes-error-exam.png)
 
 因此正确的交换步骤如下
-![错误步骤](/images/algorithm/linked-list/swap-nodes-error-exam.png)
+![错误步骤](/images/algorithm/linked-list/swap-nodes-exam.png)
 
-边界条件为 `cursor.Next == nil` (后面只剩一个节点) || `cursor.Next.Next == nil`（后续没有节点）
+边界条件为 `cursor.Next == nil` (后面只剩一个节点) 或 `cursor.Next.Next == nil`（后续没有节点）
 
 节点结构
 ```cgo

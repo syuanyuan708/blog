@@ -33,7 +33,7 @@ author: a东
 
 ### 解题思路
 在链表中移除一个元素的操作 `cur.Next = cur.Next.Next` 即可，如 `示例1` 中要移除第3个值为6的元素时 `cur` 应该指向第2个值为2的元素。因此移除一个元素 `X` 需要
-获取 `X` 的前一个元素，由于有可能需要移除头结点元素因此可以借助一个虚拟节点来处理边界条件。
+获取 `X` 的前一个元素，由于有可能需要移除头节点元素因此可以借助一个虚拟节点来处理边界条件。
 
 节点结构
 ```cgo
@@ -46,7 +46,7 @@ author: a东
 遍历链表移除指定元素
 ```cgo
     func removeElements(head *ListNode, val int) *ListNode {
-        dummy := &ListNode{Next: head} // 虚拟头结点
+        dummy := &ListNode{Next: head} // 虚拟头节点
         for cur := dummy; cur.Next != nil; { // cur.Next == nil 时遍历完整个链表
             if cur.Next.Val == val {
                 cur.Next = cur.Next.Next
