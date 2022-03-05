@@ -61,7 +61,7 @@ x = (m - 2n -1)*(y + z) + y
     }
 ```
 
-交换链表节点
+寻找环的入口
 ```cgo
     func detectCycle(head *ListNode) *ListNode {
         slow := head
