@@ -111,7 +111,7 @@ random_index：随机指针指向的节点索引（范围从 0 到 n-1）；�
     }
 ```
 
-遍历链表移除指定元素
+递归拷贝带随机指针的链表
 ```cgo
     var nodeMap = make(map[*Node]*Node)
 
@@ -143,11 +143,10 @@ random_index：随机指针指向的节点索引（范围从 0 到 n-1）；�
 
 
 ### 解题思路2
-可以通过如下三步来进行复制
-1. 在原链表的每一个节点后插入一个前一个节点的拷贝，完成 `Next` 拷贝
-2. 为每个拷贝的节点关联 `Random`，很明显拷贝节点的 `Random` 就是它对应原节点 `Random` 的 `Next`
+可以通过如下三步来进行复制<br>
+1. 在原链表的每一个节点后插入一个前一个节点的拷贝，完成 `Next` 拷贝<br>
+2. 为每个拷贝的节点关联 `Random`，很明显拷贝节点的 `Random` 就是它对应原节点 `Random` 的 `Next`<br>
 3. 将拷贝的链表从混合链表中拆解出来，只需要拆解 `Next`
-
 ![链表](/images/algorithm/linked-list/random-list.png)
 
 

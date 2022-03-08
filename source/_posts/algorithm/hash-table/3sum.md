@@ -63,7 +63,7 @@ author: a东
                         left++
                     }
                     left++
-                    for left < right - 1 && nums[right] == nums[right] - 1 {
+                    for left < right - 1 && nums[right] == nums[right-1] {
                         right--
                     } 
                     right--
@@ -73,7 +73,7 @@ author: a东
                     }
                     left++
                 } else {
-                    for left < right - 1 && nums[right] == nums[right] - 1 {
+                    for left < right - 1 && nums[right] == nums[right-1] {
                         right--
                     } 
                     right--
