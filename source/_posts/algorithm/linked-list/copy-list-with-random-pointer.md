@@ -44,7 +44,7 @@ random_index：随机指针指向的节点索引（范围从 0 到 n-1）；�
 输出：[[3,null],[3,0],[3,null]]
 ```
 
-### 解题思路
+### 解题思路1
 题目罗里吧嗦的说了一大堆，其实总结下来就是让我们深度拷贝一个链表，只不过这个链表相比普通的单链表多个一个随机指针，这个随机指针 `random` 随机指向链表中的任意节点或者为空。
 既然如此我们不妨先看一下如何深度拷贝一个普通的单链表的处理过程：
 
@@ -141,6 +141,51 @@ random_index：随机指针指向的节点索引（范围从 0 到 n-1）；�
 - 时间复杂度：O(n)，其中 n 是链表的长度。
 - 空间复杂度：O(n)。
 
+
+### 解题思路2
+可以通过如下三步来进行复制
+1. 在原链表的每一个节点后插入一个前一个节点的拷贝，完成 `Next` 拷贝
+2. 为每个拷贝的节点关联 `Random`，很明显拷贝节点的 `Random` 就是它对应原节点 `Random` 的 `Next`
+3. 将拷贝的链表从混合链表中拆解出来，只需要拆解 `Next`
+
+![链表](/images/algorithm/linked-list/random-list.png)
+
+
+```cgo
+    func copyRandomList(head *Node) *Node {
+        if head == nil {
+            return nil
+        }
+    
+        for node := head; node != nil; node = node.Next.Next {
+            copyNode := &Node{Val: node.Val}
+            copyNode.Next = node.Next
+            node.Next = copyNode
+        }
+    
+        for node := head; node != nil; node = node.Next.Next {
+            if node.Random != nil {
+                node.Next.Random = node.Random.Next
+            }
+        }
+    
+        dummyNode := &Node{Val: -1}
+        curNode := dummyNode
+        for node := head; node != nil; node = node.Next {
+            copyNode := node.Next
+            curNode.Next = copyNode
+            curNode = curNode.Next
+            node.Next = curNode.Next
+        }
+    
+        return dummyNode.Next
+    }
+```
+
+
+### 复杂度分析
+- 时间复杂度：O(n)，其中 n 是链表的长度。
+- 空间复杂度：O(1)。
 
 
 ## 参考
